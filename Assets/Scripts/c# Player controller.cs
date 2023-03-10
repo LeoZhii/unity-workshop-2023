@@ -12,7 +12,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rigidBody2D = GetComponent<RigidBody2D>()
+        _rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -20,4 +20,10 @@ public class NewBehaviourScript : MonoBehaviour
     {
         _horizontalMovement = Input.GetAxis("Horizontal") * Speed;
     }
+
+    private void FixedUpdate () 
+    {
+        _rigidBody2D.velocity = new Vector2(_horizontalMovement * Speed, _rigidBody2D.velocity.y);
+    }
+
 }
