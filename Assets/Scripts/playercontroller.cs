@@ -9,6 +9,7 @@ public class playercontroller : MonoBehaviour
 
     private Rigidbody2D _rigidBody2D;
     private float _horizontalMovement;
+    private Rigidbody2D _spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class playercontroller : MonoBehaviour
     {
         _horizontalMovement = Input.GetAxisRaw("Horizontal") * Speed;
 
-        if (_horizontalMovement < 0);
+        if (_horizontalMovement < 0)
         {
             _spriteRenderer.flipX = true;
         }
@@ -40,6 +41,5 @@ public class playercontroller : MonoBehaviour
 private void FixedUpdate () {
     _rigidBody2D.velocity = new Vector2(_horizontalMovement * Speed * Time.fixedDeltaTime, _rigidBody2D.velocity.y);
 }
-
 
 }
